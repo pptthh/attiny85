@@ -22,6 +22,9 @@ int main(void)
 	PRR |= 15; //PRTIM1 PRTIM0 PRUSI PRADC
 	
 	sei();  // Enable interrupts
+
+	cbi(ADCSRA,ADEN);// switch Analog to Digitalconverter OFF
+	//sbi(ADCSRA,ADEN);// switch Analog to Digitalconverter ON
 	
 	MCUCR &= ~_BV(SM0);
 	while(true)
