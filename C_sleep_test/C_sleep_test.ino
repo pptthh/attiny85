@@ -17,7 +17,7 @@ byte counter;
 int main(void)
 {
 	// Enable watchdog for interrupt, 0.5s
-	WDTCR = 1 << WDIE | 1 << WDP2 ;// | 1 << WDP1 | 1 << WDP0;
+	WDTCR = 1 << WDIE ;// | 1 << WDP2 | 1 << WDP1 | 1 << WDP0;
 
 	PRR |= 15; //PRTIM1 PRTIM0 PRUSI PRADC
 	
@@ -40,7 +40,7 @@ void nextState(void)
 	if (counter < 24)
 	{
 		portb = 2;
-		ddrb = counter == 4 || counter == 16 ? 2 : 0;
+		ddrb = counter == 4 || counter == 15 ? 2 : 0;
 	}
 	else
 	{
